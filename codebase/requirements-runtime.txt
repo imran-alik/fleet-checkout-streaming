@@ -1,0 +1,4 @@
+# Minimal runtime deps — pipeline + certification on committed sample (offline).
+# Full catalog: docs/LIBRARIES.md
+duckdb>=1.0.0
+pydantic>=2.0.0

@@ -1,0 +1,21 @@
+[project]
+name = "fleet-checkout-streaming"
+version = "1.0.0"
+description = "Real-time car rental checkout and fleet analytics (local emulator)"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["codebase"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["codebase", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"codebase/scripts/*.py" = ["E402"]

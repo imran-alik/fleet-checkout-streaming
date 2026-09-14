@@ -1,0 +1,5 @@
+# Full install (runtime + dev/test). Catalog: docs/LIBRARIES.md
+# Runtime-only: codebase/requirements-runtime.txt
+-r requirements-runtime.txt
+pytest>=8.0.0
+ruff>=0.8.0

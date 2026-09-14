@@ -1,0 +1,33 @@
+# Fleet Checkout Streaming — command reference (run from repo root)
+
+# --- Setup ---
+py -3.12 -m pip install -r codebase\requirements.txt
+$env:PYTHONPATH="codebase"
+
+# --- Full local verification (design gates + lint + tests + certify) ---
+.\codebase\scripts\bootstrap.ps1
+
+# --- Generate / refresh committed sample (200 CDC events) ---
+py -3.12 codebase\scripts\generate_sample.py
+
+# --- Run pipeline on committed sample ---
+py -3.12 codebase\scripts\run_pipeline.py --source sample
+
+# --- Run synthetic QA scenarios (DLQ + hold expiry) ---
+py -3.12 codebase\scripts\run_pipeline.py --source synthetic
+
+# --- Certification (200 rows, quality gates, evidence JSON) ---
+py -3.12 codebase\scripts\certify_public_run.py
+
+# --- Tests ---
+py -3.12 -m pytest -q
+py -3.12 -m pytest tests/test_pipeline.py -v
+
+# --- Lint ---
+py -3.12 -m ruff check codebase tests
+
+# --- Design-commit static gates ---
+py -3.12 codebase\scripts\check_design_commit.py
+
+# --- DuckDB analytics (after certify) ---
+# duckdb data/sink/warehouse.db < analytics_query.sql
