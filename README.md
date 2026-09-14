@@ -1,11 +1,14 @@
 # Fleet Checkout Streaming Pipeline (GCP)
 
+> **Compliance:** Redacted portfolio design of private production repos — full-scale sharing **prohibited under compliance**. See [COMPLIANCE.md](COMPLIANCE.md). Synthetic samples only.
+
 Python stream-processing portfolio case study: ingest rental fleet CDC events, maintain live vehicle inventory in Redis, load bronze/silver/gold medallion tables, and compute booking conversion + fleet utilization KPIs. Local emulator with **GCP production mapping** (Debezium → Kafka → Memorystore → BigQuery).
 
 Reference layout: [vishal-bulbule/etl-pipeline-datafusion-airflow](https://github.com/vishal-bulbule/etl-pipeline-datafusion-airflow) · [Python-for-GCP](https://github.com/vishal-bulbule/Python-for-GCP/tree/main/Python%20for%20GCP)
 
 | Doc | Purpose |
 |---|---|
+| [docs/diagrams/DATA-MODEL.md](docs/diagrams/DATA-MODEL.md) | **ERD diagrams** — CDC events, medallion tables, streaming lineage |
 | [docs/DESIGN.md](docs/DESIGN.md) | Architecture, schemas, failure matrix |
 | [docs/HANDOVER.md](docs/HANDOVER.md) | Run / verify / handover checklist |
 | [docs/gcp/GCP-SERVICES.md](docs/gcp/GCP-SERVICES.md) | GCP + GCS service mapping |

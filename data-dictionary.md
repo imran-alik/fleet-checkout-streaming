@@ -1,5 +1,20 @@
 # Data Dictionary — Fleet Checkout Streaming Pipeline
 
+## Entity-relationship diagrams (ERD)
+
+| Diagram | Description |
+|---|---|
+| **[docs/diagrams/DATA-MODEL.md](docs/diagrams/DATA-MODEL.md)** | CDC event model, medallion ERD, Redis + Kafka lineage |
+| [DESIGN.md](docs/DESIGN.md) | Architecture + failure matrix |
+
+```mermaid
+erDiagram
+    BRONZE_RENTAL_CDC ||--|| SILVER_RENTAL_SESSIONS : rental_id
+    SILVER_RENTAL_SESSIONS ||--o{ GOLD_FLEET_KPIS : aggregated
+```
+
+---
+
 ## Source: rental CDC (`data/source/samples/fleet_rental_cdc.jsonl`)
 
 | Column | Type | Nullable | Description |

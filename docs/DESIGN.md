@@ -43,6 +43,17 @@ Artifact: `data/evidence/run_summary_fleet_full_sample_*.json`
 
 ---
 
+## 1.1 Data model & ERD
+
+Linked dataset diagrams (CDC → bronze → silver → gold + Redis inventory), portfolio pattern aligned with [uber-data-engineering-mage-project](https://github.com/darshilparmar/uber-data-engineering-mage-project):
+
+| Artifact | Path |
+|---|---|
+| Full ERD pack | [docs/diagrams/DATA-MODEL.md](diagrams/DATA-MODEL.md) |
+| Column dictionary | [data-dictionary.md](../data-dictionary.md) |
+
+---
+
 ## 2. Problem statement
 
 ### 2.1 Business problem
